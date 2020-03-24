@@ -59,10 +59,39 @@ my_stats <- function(values, parametric = TRUE, allow_print = FALSE)
   {
     cat("Median = ", central_tendancy, "\n", "MAD =", spread, "\n")
   }
-  
+  return(result)
   
 }
 sample_vector <- c(0.458, 1.663, 0.8654)
 result <- my_stats(sample_vector, FALSE, TRUE)
+result
 
 
+Dosage <- c(20, 30, 40, 45, 60)
+DrugA <- c(16, 20, 27, 40, 60)
+DrugB <- c(15, 18, 25, 31, 40)
+
+drugs <- data.frame(Dosage, DrugA, DrugB)
+str(drugs)
+plot(drugs)
+
+attach(drugs)
+plot(Dosage, type = "o", col = "Blue")
+?plot
+
+
+# option "b" indicates that both  points and lines should be plotted
+plot(Dosage, DrugA, type = "b")
+?par
+
+#par function - parameters of a graph
+opar <- par(no.readonly = TRUE)
+#lty = line type
+#lwd = line width
+
+
+#lty = 2 dashed line
+#pch = 17 solid triangle 
+par(lty= 2, pch = 17)
+plot(Dosage, DrugA, type = "b")
+par(opar)
